@@ -4,25 +4,33 @@ const Hero = require('../hero.js');
 let hero;
 
 describe('Hero', function(){
-
-  xit('should have a name', function(){
-
+  beforeEach(function(){
+    hero = new Hero('Spiderman', 'Pizza', ['task 1', 'task 2'])
   });
 
-  xit('should start with full health', function(){
+  it('should have a name', function(){
+    actual = hero.name
+    assert.strictEqual(actual, 'Spiderman')
+  });
 
+  it('should start with full health', function(){
+    actual = hero.health
+    assert.strictEqual(actual, 100)
   })
 
-  xit('should have a favourite food', function(){
-
+  it('should have a favourite food', function(){
+    actual = hero.fav_food
+    assert.strictEqual(actual, 'Pizza')
   })
 
-  xit('should be able to say their name', function(){
-
+  it('should be able to say their name', function(){
+    actual = hero.sayName()
+    assert.strictEqual(actual, "Hi! My name is Spiderman.")
   })
 
-  xit('should have tasks to complete', function(){
-
+  it('should have tasks to complete', function(){
+    actual = hero.tasks.length
+    assert.strictEqual(actual, 2)
   })
 
 })
