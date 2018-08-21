@@ -1,5 +1,6 @@
 const assert = require('assert');
 const Hero = require('../hero.js');
+const Food = require('../food.js')
 
 let hero;
 
@@ -16,21 +17,35 @@ describe('Hero', function(){
   it('should start with full health', function(){
     const actual = hero.health
     assert.strictEqual(actual, 100)
-  })
+  });
 
   it('should have a favourite food', function(){
     const actual = hero.fav_food
     assert.strictEqual(actual, 'Pizza')
-  })
+  });
 
   it('should be able to say their name', function(){
     const actual = hero.sayName()
     assert.strictEqual(actual, "Hi! My name is Spiderman.")
-  })
+  });
 
   it('should have tasks to complete', function(){
     const actual = hero.tasks.length
     assert.strictEqual(actual, 2)
+  });
+
+  it('should be able to eat food and gain health', function(){
+    burger = new Food('Burger', 10)
+    hero.eatsFood(burger)
+    actual = hero.health
+    assert.strictEqual(actual, 110)
+  })
+
+  it('should be able to eat favourite food and gain more health', function(){
+     pizza = new Food('Pizza', 10)
+    hero.eatsFood(pizza)
+    actual = hero.health
+    assert.strictEqual(actual, 115)
   })
 
 })
