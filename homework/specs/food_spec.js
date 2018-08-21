@@ -18,4 +18,9 @@ describe('Food', function(){
     assert.strictEqual(actual, 10)
   })
 
+  it('should start off not being poisonous', function(){
+    const actual = food.poisonous
+    assert.strictEqual(actual, false)
+  })
+
 })

@@ -97,4 +97,12 @@ describe('Hero', function(){
     assert.deepStrictEqual(actual, [task2, task3])
   });
 
+  it('should lose health if they eat poisonous food', function(){
+    pizza = new Food('Pizza', 10)
+    pizza.poisonous = true
+    hero.eatsFood(pizza)
+    actual = hero.health
+    assert.strictEqual(actual, 90)
+  })
+
 })
