@@ -9,27 +9,27 @@ describe('Hero', function(){
   });
 
   it('should have a name', function(){
-    actual = hero.name
+    const actual = hero.name
     assert.strictEqual(actual, 'Spiderman')
   });
 
   it('should start with full health', function(){
-    actual = hero.health
+    const actual = hero.health
     assert.strictEqual(actual, 100)
   })
 
   it('should have a favourite food', function(){
-    actual = hero.fav_food
+    const actual = hero.fav_food
     assert.strictEqual(actual, 'Pizza')
   })
 
   it('should be able to say their name', function(){
-    actual = hero.sayName()
+    const actual = hero.sayName()
     assert.strictEqual(actual, "Hi! My name is Spiderman.")
   })
 
   it('should have tasks to complete', function(){
-    actual = hero.tasks.length
+    const actual = hero.tasks.length
     assert.strictEqual(actual, 2)
   })
 
