@@ -24,9 +24,15 @@ describe('Task', function(){
     assert.strictEqual(actual, 'chocolate')
   });
 
-  it('should start off being marked as not completed', function(){
-    const actual = task.completed
+  it('should start off as incomplete', function(){
+    const actual = task.isComplete
     assert.strictEqual(actual, false)
+  })
+
+  it('should be able to be marked as complete', function(){
+    task.markAsComplete();
+    const actual = task.isComplete;
+    assert.strictEqual(actual, true)
   })
 
 })

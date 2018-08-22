@@ -18,7 +18,7 @@ describe("Rat", function(){
 
   it('should be able to touch food and make it poisonous', function(){
     rat.touchFood(food)
-    const actual = food.poisonous
+    const actual = food.isPoisonous
     assert.strictEqual(actual, true)
   });
 

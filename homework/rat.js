@@ -3,9 +3,7 @@ const Rat = function(name){
 }
 
 Rat.prototype.touchFood = function(food){
-  if (!food.poisonous){
-    food.poisonous = true
-  }
+  food.isPoisonous = true
 }
 
 module.exports = Rat;

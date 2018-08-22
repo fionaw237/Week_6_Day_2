@@ -12,7 +12,7 @@ Hero.prototype.sayName = function(){
 }
 
 Hero.prototype.eatsFood = function(food){
-  if (food.poisonous){
+  if (food.isPoisonous){
     this.health -= 10
   }
   else if (food.name === this.fav_food){
@@ -22,43 +22,66 @@ Hero.prototype.eatsFood = function(food){
     this.health += food.replenishment
   }
 }
+//---------------------------------------------
+//suggestions from hwork review:
 
-Hero.prototype.sortTasksByDifficulty = function(){
-  this.tasks.sort(function(a,b){ //Array now becomes [7, 8, 25, 41]
-      return b.difficulty - a.difficulty
+//make addTask function
+Hero.prototype.addTask = function(task){
+  this.tasks.push(task);
+}
+
+//and a sortTasks
+Hero.prototype.sortTasks = function(property){
+  this.tasks.sort(function(a,b){
+    return b[property] - a[property];
   })
 }
 
-Hero.prototype.sortTasksByUrgency = function(){
-  this.tasks.sort(function(a,b){ //Array now becomes [7, 8, 25, 41]
-      return b.urgency- a.urgency
-  })
-}
+//---------------------------------------------
+// My initial go - wrote a function to sort by each property but better to pass a property in to one function
 
-Hero.prototype.sortTasksByReward = function(){
-  this.tasks.sort(function(a,b){ //Array now becomes [7, 8, 25, 41]
-      return b.reward- a.reward
-  })
-}
+// Hero.prototype.sortTasksByDifficulty = function(){
+//   this.tasks.sort(function(a,b){
+//       return b.difficulty - a.difficulty
+//   })
+// }
+//
+// Hero.prototype.sortTasksByUrgency = function(){
+//   this.tasks.sort(function(a,b){
+//       return b.urgency- a.urgency
+//   })
+// }
+//
+// Hero.prototype.sortTasksByReward = function(){
+//   this.tasks.sort(function(a,b){
+//       return b.reward- a.reward
+//   })
+// }
 
 Hero.prototype.viewCompletedTasks = function(){
-  completed = []
-  for (task of this.tasks){
-    if (task.completed){
-      completed.push(task)
-    }
-  }
-  return completed
+  // completed = []
+  // for (task of this.tasks){
+  //   if (task.isComplete){
+  //     completed.push(task)
+  //   }
+  // }
+  // or could use filter
+  return this.tasks.filter(task => task.isComplete)
+  //return completed
 }
 
-Hero.prototype.viewNonCompletedTasks = function(){
-  notCompleted = []
-  for (task of this.tasks){
-    if (!task.completed){
-      notCompleted.push(task)
-    }
-  }
-  return notCompleted
+Hero.prototype.viewIncompleteTasks = function(){
+  // notCompleted = []
+  // for (task of this.tasks){
+  //   if (!task.isComplete){
+  //     notCompleted.push(task)
+  //   }
+  // }
+  // return notCompleted
+
+  // or use filter
+  return this.tasks.filter(task => !task.isComplete)
+
 }
 
 module.exports = Hero;
